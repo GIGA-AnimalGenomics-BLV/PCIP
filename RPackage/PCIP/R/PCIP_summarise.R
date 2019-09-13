@@ -9,6 +9,7 @@
 #' @param mergeShearSiteDistance numeric. Window (up/down) to collapse reads displaying the same shear site.
 #' @param distance_report numeric. When reporting the integration site - read ID table, associate to each IS any reads within a +/- distance_report bp window.
 #' @param distanceFLAG numeric. Flag integration sites located too close (within distanceFLAG, up/down).
+#' @param FILTER boolean. Returns only the FLAG.OWNER = TRUE, removing most false positive IS.
 #'
 #' @return list Field description:
 #' \enumerate{
@@ -68,7 +69,7 @@
 #' @importFrom utils head write.table
 #'
 #' @export
-PCIP_summarise <- function(PCIPbreakpoints = NULL, align = NULL, targetName = NULL, mergeISdistance = 200, mergeShearSiteDistance = 0, distanceFLAG = 1000, distance_report = 1000){
+PCIP_summarise <- function(PCIPbreakpoints = NULL, align = NULL, targetName = NULL, mergeISdistance = 200, mergeShearSiteDistance = 0, distanceFLAG = 1000, FILTER = TRUE, distance_report = 1000){
 
   suppressPackageStartupMessages(library(tidyverse))
   suppressPackageStartupMessages(library(GenomicRanges))
@@ -327,6 +328,10 @@ PCIP_summarise <- function(PCIPbreakpoints = NULL, align = NULL, targetName = NU
     mutate(OWNER = FLAG.OWNER,
            FLAG.OWNER = ifelse(FLAG.OWNER == rowname, TRUE, FALSE)) %>%
     select(-rowname)
+
+  if(FILTER == TRUE){
+    breaks.summerised <- filter(breaks.summerised, FLAG.OWNER == TRUE)
+  }
 
   #######################
   ## READID - IS TABLE ##

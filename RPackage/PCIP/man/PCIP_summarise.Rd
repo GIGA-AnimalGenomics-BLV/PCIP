@@ -6,7 +6,7 @@
 \usage{
 PCIP_summarise(PCIPbreakpoints = NULL, align = NULL,
   targetName = NULL, mergeISdistance = 200,
-  mergeShearSiteDistance = 0, distanceFLAG = 1000,
+  mergeShearSiteDistance = 0, distanceFLAG = 1000, FILTER = TRUE,
   distance_report = 1000)
 }
 \arguments{
@@ -17,6 +17,8 @@ PCIP_summarise(PCIPbreakpoints = NULL, align = NULL,
 \item{mergeShearSiteDistance}{numeric. Window (up/down) to collapse reads displaying the same shear site.}
 
 \item{distanceFLAG}{numeric. Flag integration sites located too close (within distanceFLAG, up/down).}
+
+\item{FILTER}{boolean. Returns only the FLAG.OWNER = TRUE, removing most false positive IS.}
 
 \item{distance_report}{numeric. When reporting the integration site - read ID table, associate to each IS any reads within a +/- distance_report bp window.}
 }
