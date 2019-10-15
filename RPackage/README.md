@@ -1,7 +1,7 @@
 # PCIP_FILTER
 
 <p align="center">
-  <img src="https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/FILTER.svg?raw=true" />
+  <img src="https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/FILTER.svg?sanitze=true" />
 </p>
 
 ![Example](https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/FILTER.svg)
