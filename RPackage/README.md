@@ -1,7 +1,7 @@
 # PCIP_FILTER
 
 <p align="center">
-  <img src="https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/FILTER.svg?sanitize=true"/>
+  <img src="https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/FILTER.jpg?raw=true"/>
 </p>
 
 ![Example](https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/FILTER.svg)
@@ -15,7 +15,7 @@
 # PCIP_GETBREAKPOINTS
 
 <p align="center">
-  <img src="https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/BREAKPOINT.svg?raw=true" />
+  <img src="https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/BREAKPOINT.jpg?raw=true" />
 </p>
 
 ``PCIP_getBreakPoints(PAF = NULL, lengthTarget = NULL, targetName = NULL, gapAlignment = NA, distanceToLTR = NA, returnFILTEREDout = FALSE)``
@@ -33,7 +33,7 @@
 # PCIP_SUMMARISE
 
 <p align="center">
-  <img src="https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/SUMMARISE.svg?raw=true" />
+  <img src="https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/SUMMARISE.jpg?raw=true" />
 </p>
 
 ``PCIP_summarise(PCIPbreakpoints = NULL, align = NULL, targetName = NULL, mergeISdistance = 200, mergeShearSiteDistance = 0, minDistanceLTR = 300, distanceFLAG = 1000, distance_report = 1000)``
@@ -50,11 +50,11 @@
 # FLAGS
 
 <p align="center">
-  <img src="https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/FLAGS.svg?raw=true" />
+  <img src="https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/FLAGS.jpg?raw=true" />
 </p>
 
 # OUTPUTS
 
 <p align="center">
-  <img src="https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/OUTPUT.svg?raw=true" />
+  <img src="https://github.com/GIGA-AnimalGenomics-BLV/PCIP/blob/master/WORKFLOW/OUTPUT.jpg?raw=true" />
 </p>
