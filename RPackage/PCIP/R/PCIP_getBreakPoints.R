@@ -42,6 +42,7 @@
 PCIP_getBreakPoints <- function(PAF = NULL, lengthTarget = NULL, targetName = NULL, gapAlignment = NA, distanceToLTR = NA, returnFILTEREDout = FALSE){
 
   suppressPackageStartupMessages(library(tidyverse))
+  suppressPackageStartupMessages(library(GenomicRanges))
 
   if(is_empty(PAF)){ stop('Empty or Absent PAF argument!') }
   if(is_empty(lengthTarget)){ stop('Empty or Absent lengthTarget argument! Please provide the length of the TARGET chromosome') }

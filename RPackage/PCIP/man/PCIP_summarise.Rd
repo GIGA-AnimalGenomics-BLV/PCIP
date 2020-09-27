@@ -4,10 +4,16 @@
 \alias{PCIP_summarise}
 \title{Collapse results into an Integration Site table}
 \usage{
-PCIP_summarise(PCIPbreakpoints = NULL, align = NULL,
-  targetName = NULL, mergeISdistance = 200,
-  mergeShearSiteDistance = 0, distanceFLAG = 1000, FILTER = TRUE,
-  distance_report = 1000)
+PCIP_summarise(
+  PCIPbreakpoints = NULL,
+  align = NULL,
+  targetName = NULL,
+  mergeISdistance = 200,
+  mergeShearSiteDistance = 0,
+  distanceFLAG = 1000,
+  FILTER = TRUE,
+  distance_report = 1000
+)
 }
 \arguments{
 \item{PCIPbreakpoints}{tibble. TARGET-HOST breakpoints from \code{PCIP_getBreakPoints}}

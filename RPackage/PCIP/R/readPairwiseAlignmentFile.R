@@ -16,7 +16,8 @@
 #' @export
 readPairwiseAlignmentFile <- function(alignFile = NULL){
 
-  library(tidyverse)
+  suppressPackageStartupMessages(library(tidyverse))
+  suppressPackageStartupMessages(library(GenomicRanges))
 
   # 1. LOAD FILE
   print(paste0("Read Pairwise mApping File located at: ", alignFile))

@@ -1,4 +1,4 @@
-#' Remove duplicated Integration Sites
+#' Transform an IS table into GTF
 #'
 #' @param IS tibble. Integration site tibble.
 #' @param win numeric. up/down window to add to the position in order to see them in IGV

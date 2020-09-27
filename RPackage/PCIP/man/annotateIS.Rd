@@ -4,8 +4,7 @@
 \alias{annotateIS}
 \title{Annotate Integration Sites}
 \usage{
-annotateIS(IS.path = NULL, gtf.path = NULL, sample = NULL,
-  mode = NULL)
+annotateIS(IS.path = NULL, gtf.path = NULL, sample = NULL, mode = NULL)
 }
 \arguments{
 \item{sample}{charachter. Name of the sample currently used.}

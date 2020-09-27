@@ -4,9 +4,14 @@
 \alias{PCIP_getTargetHostSequence}
 \title{PCIP_getTargetHostSequence}
 \usage{
-PCIP_getTargetHostSequence(fasta.genome = NULL, fasta.target = NULL,
-  position = NULL, size = 10000, orientation = "+",
-  out.path = "~/Desktop/")
+PCIP_getTargetHostSequence(
+  fasta.genome = NULL,
+  fasta.target = NULL,
+  position = NULL,
+  size = 10000,
+  orientation = "+",
+  out.path = "~/Desktop/"
+)
 }
 \arguments{
 \item{fasta.genome}{Character. Path/to/genome.fa.}

@@ -45,6 +45,7 @@
 PCIP_filter <- function(minimap2PAF = NULL, targetName = NULL){
 
   suppressPackageStartupMessages(library(tidyverse))
+  suppressPackageStartupMessages(library(GenomicRanges))
 
   print(paste0("Initial number of reads : ", length(unique(minimap2PAF$qName))))
 

@@ -6,6 +6,13 @@ Pooled CRISPR Inverse PCR sequencing (PCIP-seq) is a method that leverages selec
   <img src="WORKFLOW/PCIPSEQ.jpg">
 </p>
 
+## Updates:
+
+** 27/09/2020: ** 
+
+* Reworked the R library prerequisites ("tidyverse" replaces the individual packages dplyr, ggplot, ...).
+* Added a small example to run R functions.
+
 ## SUMMARY: Analysis
 
 **DISCLAIMER:** Given the extreme diversity of proviruses, potential genomic alterations and the noisiness of nanopore sequencing technologies, the following pipeline should not be considered as universal. It can be used to prioritize interesting integration sites (IS) but will have to be adapted to your specific needs. 
@@ -27,15 +34,21 @@ Pooled CRISPR Inverse PCR sequencing (PCIP-seq) is a method that leverages selec
   - [Bioconductor (≥ 3.7.)](https://www.bioconductor.org/install/) 
   - [Rsamtools (≥ 1.32.3.)](https://bioconductor.org/packages/release/bioc/html/Rsamtools.html) 
   - [GenomicRanges (≥ 1.32.7.)](https://bioconductor.org/packages/release/bioc/html/GenomicRanges.html)
-  - [dplyr (≥ 0.7.8.)](https://cran.r-project.org/web/packages/dplyr/index.html)
-  - [ggplot2 (≥ 2.3.1.)](https://cran.r-project.org/web/packages/ggplot2/index.html)
-  - [magrittr (≥ 1.5.)](https://cran.r-project.org/web/packages/magrittr/index.html)
-  - [purrr (≥ 0.2.5.)](https://cran.r-project.org/web/packages/purrr/index.html)
-  - [readr (≥ 1.3.1.)](https://cran.r-project.org/web/packages/readr/index.html)
-  - [tibble (≥ 2.0.1.)](https://cran.r-project.org/web/packages/tibble/index.html)
-  - [tidyr (≥ 0.8.2.)](https://cran.r-project.org/web/packages/tidyr/index.html)
+  - [changepoint (≥ 2.2.2.)](https://cran.r-project.org/web/packages/changepoint/index.html)
+  - [tidyverse (≥ 1.3.0)](https://cran.r-project.org/web/packages/changepoint/index.html)
+  
+    - [dplyr (≥ 0.7.8.)](https://cran.r-project.org/web/packages/dplyr/index.html)
+    - [ggplot2 (≥ 2.3.1.)](https://cran.r-project.org/web/packages/ggplot2/index.html)
+    - [magrittr (≥ 1.5.)](https://cran.r-project.org/web/packages/magrittr/index.html)
+    - [purrr (≥ 0.2.5.)](https://cran.r-project.org/web/packages/purrr/index.html)
+    - [readr (≥ 1.3.1.)](https://cran.r-project.org/web/packages/readr/index.html)
+    - [tibble (≥ 2.0.1.)](https://cran.r-project.org/web/packages/tibble/index.html)
+    - [tidyr (≥ 0.8.2.)](https://cran.r-project.org/web/packages/tidyr/index.html)
 
-Code were tested on a Linux fedora 7.2 ('Nitrogen') and macOS 'Mojave'. 
+
+Most required R libraries can be obtained by installing the R package [tidyverse](https://cran.r-project.org/web/packages/tidyverse/index.html). 
+
+All codes were tested on a Linux fedora 7.2 ('Nitrogen') and macOS 'Mojave'. 
 
 ### Genome:
 
@@ -121,21 +134,31 @@ R functions to extract integration sites and the estimation of the corresponding
 R CMD INSTALL PCIP_1.0.tar.gz
 ```
 
-Integration site detection is performed using the following R functions. A step-by-step explaination of the different functions can be found at [PCIP-R](https://github.com/GIGA-AnimalGenomics-BLV/PCIP/tree/master/RPackage).
+Alternatively, the raw functions can be simply sourced directly into R. These functions are located in: [PCIP R functions](https://github.com/GIGA-AnimalGenomics-BLV/PCIP/tree/master/RPackage/PCIP/R)
 
-Using R, run the following commands:
+```
+source("~/Github/GIGA/PCIP/RPackage/PCIP/R/PCIP_filter.R")
+source("~/Github/GIGA/PCIP/RPackage/PCIP/R/PCIP_getBreakPoints.R")
+source("~/Github/GIGA/PCIP/RPackage/PCIP/R/PCIP_summarise.R")
+source("~/Github/GIGA/PCIP/RPackage/PCIP/R/readPairwiseAlignmentFile.R")
+```
+
+
+Integration site detection is performed using the following R functions. A step-by-step explaination of the different functions can be found at [PCIP-R](https://github.com/GIGA-AnimalGenomics-BLV/PCIP/tree/master/RPackage). 
+
+To test the R function, a small pairwise-alignment file generated from HIV-1 U1 cell line can be found in the [example folder](https://github.com/GIGA-AnimalGenomics-BLV/PCIP/example) of this Github. Using R, run the following commands:
 
 ```
 # 0. Load Vackages 
 library(PCIP)
 library(tidyverse)
+library(GenomicRanges)
 
 # 1. Initialize Variables:
-PAF.path = "path/to/"$NAME"_minimap2_TARGETHOST.paf"
-targetName = "psp344"
-lengthTarget = 8720
-mergeISdistance = 200
-out.prefix = "path/to/outputs/mySample"
+PAF.path = "PCIP/example/HIV_U1.paf.gz"
+targetName = "HIV_U1"
+lengthTarget = 9656
+out.prefix = "~/Desktop/U1_results"
 
 # 2. Read PAF File:
 PAF <- readPairwiseAlignmentFile(alignFile = PAF.path)
@@ -148,7 +171,7 @@ PAF.filter <- PCIP_filter(minimap2PAF = PAF, targetName = targetName)
 PAF.breakpoints <- PCIP_getBreakPoints(PAF = PAF.filter, lengthTarget = lengthTarget, targetName = targetName)
 
 # 5. Group Target-Host Junctions Into Integration Site Units:
-PAF.integrationSite <- PCIP_summarise(PCIPbreakpoints = PAF.breakpoints, align = PAF, targetName = targetName, mergeISdistance = mergeISdistance)
+PAF.integrationSite <- PCIP_summarise(PCIPbreakpoints = PAF.breakpoints, align = PAF, targetName = targetName, mergeISdistance = 200)
 
 # 6. Save:
 write.table(PAF.integrationSite[[1]], paste0(out.prefix, "-insertionSites.txt"), sep = "\t", row.names = F, quote = F)

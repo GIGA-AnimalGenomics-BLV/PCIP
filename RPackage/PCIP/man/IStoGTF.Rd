@@ -2,7 +2,7 @@
 % Please edit documentation in R/IStoGTF.R
 \name{IStoGTF}
 \alias{IStoGTF}
-\title{Remove duplicated Integration Sites}
+\title{Transform an IS table into GTF}
 \usage{
 IStoGTF(IS = NULL, win = 1, name = "mySample")
 }
@@ -17,7 +17,7 @@ IStoGTF(IS = NULL, win = 1, name = "mySample")
 
 }
 \description{
-Remove duplicated Integration Sites
+Transform an IS table into GTF
 }
 \examples{
 VIDO_createGTF_IS()

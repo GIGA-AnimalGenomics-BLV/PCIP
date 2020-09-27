@@ -16,6 +16,7 @@
 PCIP_statistics <- function(pathToResults = NULL, ID = NULL){
 
 	suppressPackageStartupMessages(library(tidyverse))
+  suppressPackageStartupMessages(library(GenomicRanges))
 
 	raw.path <- list.files(paste0(pathToResults, "/nobackup/RAW/", collapse = ""), full.names = T)
 	postFilter.path <- paste0(pathToResults, "/nobackup/2_SITES/", ID, "-readBreakPoints.txt", collapse = "")

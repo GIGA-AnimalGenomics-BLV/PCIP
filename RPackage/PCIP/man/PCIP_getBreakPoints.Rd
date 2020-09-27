@@ -4,9 +4,14 @@
 \alias{PCIP_getBreakPoints}
 \title{Get Read Breakpoints and ShearSites}
 \usage{
-PCIP_getBreakPoints(PAF = NULL, lengthTarget = NULL,
-  targetName = NULL, gapAlignment = NA, distanceToLTR = NA,
-  returnFILTEREDout = FALSE)
+PCIP_getBreakPoints(
+  PAF = NULL,
+  lengthTarget = NULL,
+  targetName = NULL,
+  gapAlignment = NA,
+  distanceToLTR = NA,
+  returnFILTEREDout = FALSE
+)
 }
 \arguments{
 \item{PAF}{tibble. Pairwise Alignment file (PAF) generated with minimap2, red with \code{readPairwiseAlignmentFile} and formated with \code{PCIP_filter}}
