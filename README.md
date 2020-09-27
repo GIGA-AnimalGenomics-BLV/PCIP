@@ -11,7 +11,7 @@ Pooled CRISPR Inverse PCR sequencing (PCIP-seq) is a method that leverages selec
 ** 27/09/2020: ** 
 
 * Reworked the R library prerequisites ("tidyverse" replaces the individual packages dplyr, ggplot, ...).
-* Added a small example to run R functions.
+* Added test data for the R functions.
 
 ## SUMMARY: Analysis
 
