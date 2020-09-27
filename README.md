@@ -8,10 +8,10 @@ Pooled CRISPR Inverse PCR sequencing (PCIP-seq) is a method that leverages selec
 
 ## Updates:
 
-** 27/09/2020: ** 
+**27/09/2020:** 
 
 * Reworked the R library prerequisites ("tidyverse" replaces the individual packages dplyr, ggplot, ...).
-* Added test data for the R functions.
+* Added test data for the R package.
 
 ## SUMMARY: Analysis
 
@@ -134,7 +134,7 @@ R functions to extract integration sites and the estimation of the corresponding
 R CMD INSTALL PCIP_1.0.tar.gz
 ```
 
-Alternatively, the raw functions can be simply sourced directly into R. These functions are located in: [PCIP R functions](https://github.com/GIGA-AnimalGenomics-BLV/PCIP/tree/master/RPackage/PCIP/R)
+Alternatively, the raw functions can be sourced into R. These functions are located in: [PCIP R functions](https://github.com/GIGA-AnimalGenomics-BLV/PCIP/tree/master/RPackage/PCIP/R)
 
 ```
 source("~/Github/GIGA/PCIP/RPackage/PCIP/R/PCIP_filter.R")
@@ -146,7 +146,7 @@ source("~/Github/GIGA/PCIP/RPackage/PCIP/R/readPairwiseAlignmentFile.R")
 
 Integration site detection is performed using the following R functions. A step-by-step explaination of the different functions can be found at [PCIP-R](https://github.com/GIGA-AnimalGenomics-BLV/PCIP/tree/master/RPackage). 
 
-To test the R function, a small pairwise-alignment file generated from HIV-1 U1 cell line can be found in the [example folder](https://github.com/GIGA-AnimalGenomics-BLV/PCIP/example) of this Github. Using R, run the following commands:
+To test the R function, a small pairwise-alignment file generated from HIV-1 U1 cell line can be found in the [example folder](https://github.com/GIGA-AnimalGenomics-BLV/PCIP/tree/master/example) of this Github. Using R, run the following commands:
 
 ```
 # 0. Load Vackages 
